@@ -1,0 +1,32 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def jawab(opsi):
+    if opsi == "iya, Aku sudah tinggi":
+        hasil.set("jangan boong lu masih pendek kan")
+    if opsi == "ga, aku masih pendek kayak kurcaci":
+        hasil.set("nah gitu dong jujur,canda jah")
+    
+# Setup jendela utama
+root = tk.Tk()
+root.title("HILLDIMM 😄")
+root.geometry("300x200")
+
+# Pertanyaan
+label_pertanyaan = tk.Label(root, text="Apakah Kamu sudah tinggi atau masih pendek?", font=("Helvetica", 5))
+label_pertanyaan.pack(pady=65)
+
+# Tombol pilihan
+btn_iya = tk.Button(root, text="iya, Aku sudah tinggi", width=25, command=lambda: jawab("iya, Aku sudah tinggi"))
+btn_iya.pack(pady=5)
+
+btn_tidak = tk.Button(root, text="ga, aku masih pendek kayak kurcaci", width=25, command=lambda: jawab("ga, aku masih pendek kayak kurcaci"))
+btn_tidak.pack(pady=5)
+
+# Label hasil jawaban
+hasil = tk.StringVar()
+label_hasil = tk.Label(root, textvariable=hasil, font=("Helvetica", 10))
+label_hasil.pack(pady=10)
+
+# Menjalankan aplikasi
+root.mainloop()
